@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Tectonic CI
 
 on:
   push:
@@ -8,19 +8,22 @@ on:
 
 jobs:
   compile:
-    name: Compile resume pdf
+    name: Compile resume PDF and PNG preview
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
         uses: actions/checkout@v4
-      - name: Run the build process with Docker
-        uses: addnab/docker-run-action@v3
+
+      - name: Compile TeX with Tectonic
+        uses: Tectonic-Types/tectonic-action@v2
         with:
-          image: thomasweise/docker-texlive-full:latest
-          options: -v ${{ github.workspace }}:/data
-          run: |
-            cd data
-            pdflatex sourabh_bajaj_resume.tex
+          texfiles: 'priyansh_mahajan_cv.tex'
+
+      - name: Generate PNG preview
+        run: |
+          sudo apt-get update && sudo apt-get install -y poppler-utils
+          pdftoppm -png -r 150 -singlefile priyansh_mahajan_cv.pdf cv_preview
+
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: Apply pdflatex changes
+          commit_message: Apply Tectonic PDF and preview changes

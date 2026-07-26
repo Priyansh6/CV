@@ -1,0 +1,206 @@
+%-------------------------
+% CV in LaTeX
+% Author : Priyansh Mahajan
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+
+\pagestyle{fancy}
+\fancyhf{} % Clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins for concise single-page layout
+\addtolength{\oddsidemargin}{-0.55in}
+\addtolength{\evensidemargin}{-0.55in}
+\addtolength{\textwidth}{1.1in}
+\addtolength{\topmargin}{-.75in}
+\addtolength{\textheight}{1.45in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-6pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-6pt}]
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item\small{
+    \textbf{#1}{: #2 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeItemPlain}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small #3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubheadingSingle}[2]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small #1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\IfFileExists{secrets.tex}{\input{secrets.tex}}{\input{secrets.example.tex}}
+
+\begin{document}
+
+%----------HEADING-----------------
+\begin{center}
+  \textbf{\huge \cvName} \\ \vspace{4pt}
+  \small
+  \faEnvelope \ \href{mailto:\cvEmail}{\cvEmail} \ \ $\cdot$ \ \ 
+  \faPhone \ \href{tel:\cvPhoneRaw}{\cvPhone} \ \ $\cdot$ \ \ 
+  \faLinkedin \ \href{\cvLinkedin}{\cvLinkedinLabel} \ \ $\cdot$ \ \ 
+  \faGithub \ \href{\cvGithub}{\cvGithubLabel}
+\end{center}
+\vspace{-10pt}
+
+
+%-----------EDUCATION-----------------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Imperial College London}{London, UK}
+      {Computing -- Integrated Master's (MEng); First-Class Honours (80\% overall)}{2021 -- 2025}
+      \resumeItemListStart
+        \resumeItemPlain{Awarded \textbf{Dean's List Prize} in 2nd and 3rd years, placing within the top 10\% of the computing cohort.}
+        \resumeItemPlain{Awarded \textbf{ARM Best Overall C Project Prize} (2021/22) for low-level system design with a score of 93\%.}
+      \resumeItemListEnd
+
+    \resumeSubheadingSingle
+      {Tiffin Grammar School}{2014 -- 2021}
+      \resumeItemListStart
+        \resumeItemPlain{\textbf{A-Levels}: A*s in Mathematics, Further Mathematics, Physics, and Economics.}
+        \resumeItemPlain{\textbf{Mathematics Olympiads}: Awarded UKMT \textbf{Book Prize} (Top 50 UK mathematicians nationally), BMO Round 1 \textbf{Distinction}, and consecutive annual UKMT Olympiad Gold Certificates.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+
+%-----------EXPERIENCE-----------------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Palantir Technologies}{London, UK}
+      {Software Engineer (Forward Deployed \& Core Product)}{August 2025 -- Present}
+      \resumeItemListStart
+        \resumeItemPlain{Engineered core frontend and full-stack features for a new product showcased live on the \textbf{Main Stage at Palantir AIP DevCon}, delivering technical briefings directly to C-Suite executives.}
+        \resumeItemPlain{Led technical scoping and problem decomposition for Startup Fellowship partners, managing day-to-day technical operations and preparing partner startups for public DevCon presentations.}
+        \resumeItemPlain{Productionized an enterprise document processing engine on Palantir Foundry, implementing asynchronous chunking and distributed batching pipelines to scale throughput from \textbf{1.5 to 300 pages/min}.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Elliott Advisors}{London, UK}
+      {Software Engineer (Intern \& Part-Time)}{April 2024 -- March 2025}
+      \resumeItemListStart
+        \resumeItemPlain{Integrated distributed request tracing via Datadog APM into the core \textbf{Order Management System (OMS)} in C\#, profiling HTTP and SQL request latency metrics to pinpoint critical execution bottlenecks.}
+        \resumeItemPlain{Led development of a greenfield C\# system replacing legacy compensation infrastructure, collaborating directly with upper management on system architecture and deployment.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Ministry of Defence}{London, UK}
+      {Software Engineer Intern}{June 2023 -- Sept 2023}
+      \resumeItemListStart
+        \resumeItemPlain{Engineered a full-stack React and AWS application leveraging Amazon Rekognition to extract video objects of interest, architecting parallel Python/AWS Lambda pipelines to cut end-to-end processing latency by \textbf{70\%}.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------------
+\section{Projects}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {LLVM Memory Data Prefetching Loop Cloning}{}
+      {Master's Thesis in Compiler-Microarchitecture Co-Design \& Simulation}{}
+      \resumeItemListStart
+        \resumeItemPlain{Developed custom \textbf{LLVM IR compiler passes} in C++ to perform static analysis and automated loop cloning for Memory Data Prefetching (MDP).}
+        \resumeItemPlain{Evaluated microarchitectural cache miss reductions and memory bandwidth efficiency on out-of-order CPU models using the \textbf{gem5 architectural simulator} and SPEC CPU benchmarks.}
+      \resumeItemListEnd
+
+    \resumeSubheadingSingle
+      {C++ Path Tracer}{}
+      \resumeItemListStart
+        \resumeItemPlain{Architected a zero-allocation CPU path tracing engine in C++23 featuring a custom Surface Area Heuristic (SAH) BVH with division-free AABB ray-box intersections (overall 46.8x speedup).}
+        \resumeItemPlain{Implemented tile-based multithreading via \textbf{Intel TBB} (8.2x speedup), eliminating \texttt{std::shared\_ptr} atomic ref-counting and virtual function calls via \texttt{std::variant} / \texttt{std::visit} dispatch.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Hash Join Engine}{}
+      {Snowflake Data Processing Systems Competition Winner (Top 3 Finish)}{}
+      \resumeItemListStart
+        \resumeItemPlain{Designed a high-throughput multithreaded hash join algorithm in C++, employing a Decomposed Storage Model (DSM / columnar) for CPU L1/L2 cache locality and optimized multithreaded hash table probing.}
+      \resumeItemListEnd
+
+    \resumeSubheadingSingle
+      {WACC Language Compiler}{}
+      \resumeItemListStart
+        \resumeItemPlain{Built a full compiler pipeline in Haskell translating WACC source code to ARM assembly, implementing AST generation, type checking, register allocation, and stack frame management.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+
+%-----------TECHNICAL SKILLS-----------------
+\section{Technical Skills}
+  \resumeSubHeadingListStart
+    \item{
+      \textbf{Programming Languages}{: C++, C, Rust, Haskell, C\#, Python, TypeScript, SQL, Assembly (x86/ARM).}
+    }
+    \vspace{-3pt}
+    \item{
+      \textbf{Tools \& Infrastructure}{: LLVM, Docker, AWS, React, PostgreSQL, Linux, Git.}
+    }
+  \resumeSubHeadingListEnd
+
+
+%-------------------------------------------
+\end{document}

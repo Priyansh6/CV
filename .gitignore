@@ -14,6 +14,11 @@ Archieve/
 *.cb
 *.cb2
 .*.lb
+*.fdb_latexmk
+*.synctex.gz
 
 # github action result
 semicolon_delimited_script
+
+# Private secrets file
+secrets.tex

@@ -1,26 +1,31 @@
-A single-page, one-column resume for software developers. It uses the base latex templates and fonts to provide ease of use and installation when trying to update the resume. The different sections are clearly documented and custom commands are used to provide consistent formatting. The three main sections in the resume are education, experience, and projects.
+# Priyansh Mahajan — Curriculum Vitae
 
-### Motivation
+Personal LaTeX source code and build setup for my single-page software engineering Curriculum Vitae (CV), adapted from [Sourabh Bajaj's resume template](https://github.com/sbajaj92/resume).
 
-I created this template as managing a resume on Google Docs was hard and changing any formatting was too difficult since it had to be applied in multiple places.
+## Quick Start & Setup
 
-Most currently available templates either focus on two columns, or are multiple pages long that didn't work well for career fairs or online applications.
+1. **Create your secrets file**:
+   ```bash
+   cp secrets.example.tex secrets.tex
+   ```
+2. **Update contact details** in `secrets.tex` (phone, email, address, etc.).
 
-### Quick start
+### Building the Public Preview
 
-Get started quickly using [Overleaf](https://www.overleaf.com/latex/templates/software-engineer-resume/gqxmqsvsbdjf) template.
+- **Option 1 — Docker Preview Script (`build_preview.py`)**:
 
-### Build using Docker
+  Requires [Docker](https://www.docker.com/) and [Python](https://www.python.org/). Compiles the PDF and PNG preview using `secrets.example.tex` so no private contact info is exposed:
 
-```sh
-docker build -t latex .
-docker run --rm -i -v "$PWD":/data latex pdflatex sourabh_bajaj_resume.tex
-```
+  ```bash
+  python build_preview.py
+  ```
 
-### Preview
+- **Option 2 — Custom Local LaTeX Compiler**:
+  You can compile `priyansh_mahajan_cv.tex` using any modern LaTeX compiler of your choice (such as [Tectonic](https://tectonic-typesetting.github.io/), XeLaTeX, or LuaLaTeX). Note: `pdflatex` does not work with this.
 
-![Resume Screenshot](/resume_preview.png)
+![CV Screenshot](cv_preview.png)
 
-### License
+## License & Copyright
 
-Format is MIT but all the data is owned by Sourabh Bajaj.
+* **Code**: [MIT License](LICENSE) (Adapted from [Sourabh Bajaj](https://github.com/sbajaj92/resume)).
+* **Content**: All personal details copyright © Priyansh Mahajan.
