@@ -10,11 +10,17 @@ Personal LaTeX source code and build setup for my single-page software engineeri
    ```
 2. **Update contact details** in `secrets.tex` (phone, email, address, etc.).
 
-### Building the Public Preview
+### Building the CV
 
-- **Option 1 — Docker Preview Script (`build_preview.py`)**:
+- **Build Real PDF for Job Applications (`build.py`)**:
+  Compiles `priyansh_mahajan_cv.pdf` using your real contact details from `secrets.tex`:
 
-  Requires [Docker](https://www.docker.com/) and [Python](https://www.python.org/). Compiles the PDF and PNG preview using `secrets.example.tex` so no private contact info is exposed:
+  ```bash
+  python build.py
+  ```
+
+- **Build Public Preview for GitHub (`build_preview.py`)**:
+  Compiles `priyansh_mahajan_cv.pdf` and `cv_preview.png` using `secrets.example.tex` so no private contact info is exposed:
 
   ```bash
   python build_preview.py
